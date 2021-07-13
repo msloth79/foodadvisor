@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/places": {
+    "/logs": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -12,7 +12,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Place"
+                    "$ref": "#/components/schemas/Log"
                   }
                 }
               }
@@ -51,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Place"
+          "Log"
         ],
         "parameters": [
           {
@@ -201,7 +201,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Place"
+                  "$ref": "#/components/schemas/Log"
                 }
               }
             }
@@ -239,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Place"
+          "Log"
         ],
         "requestBody": {
           "description": "",
@@ -247,14 +247,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlace"
+                "$ref": "#/components/schemas/NewLog"
               }
             }
           }
         }
       }
     },
-    "/places/count": {
+    "/logs/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -306,12 +306,12 @@
         },
         "summary": "",
         "tags": [
-          "Place"
+          "Log"
         ],
         "parameters": []
       }
     },
-    "/places/{id}": {
+    "/logs/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -321,7 +321,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Place"
+                  "$ref": "#/components/schemas/Log"
                 }
               }
             }
@@ -359,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Place"
+          "Log"
         ],
         "parameters": [
           {
@@ -383,7 +383,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Place"
+                  "$ref": "#/components/schemas/Log"
                 }
               }
             }
@@ -421,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Place"
+          "Log"
         ],
         "requestBody": {
           "description": "",
@@ -429,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPlace"
+                "$ref": "#/components/schemas/NewLog"
               }
             }
           }
@@ -495,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Place"
+          "Log"
         ],
         "parameters": [
           {
@@ -514,115 +514,47 @@
   },
   "components": {
     "schemas": {
-      "Place": {
+      "Log": {
         "required": [
-          "id",
-          "name"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
+          "action": {
             "type": "string"
           },
-          "restaurants": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "name",
-                "images",
-                "price"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "seo": {
-                  "type": "component"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "slug": {
-                  "type": "uid"
-                },
-                "images": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "price": {
-                  "type": "string",
-                  "enum": [
-                    "_1",
-                    "_2",
-                    "_3",
-                    "_4"
-                  ]
-                },
-                "information": {
-                  "type": "component"
-                },
-                "socialNetworks": {
-                  "type": "component"
-                },
-                "blocks": {
-                  "type": "dynamiczone"
-                },
-                "reviews": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "category": {
-                  "type": "string"
-                },
-                "place": {
-                  "type": "string"
-                },
-                "publish_at": {
-                  "type": "string"
-                },
-                "localizations": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "locale": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
+          "content_type": {
+            "type": "string"
+          },
+          "author": {
+            "type": "object"
+          },
+          "before": {
+            "type": "object"
+          },
+          "after": {
+            "type": "object"
           }
         }
       },
-      "NewPlace": {
-        "required": [
-          "name"
-        ],
+      "NewLog": {
         "properties": {
-          "name": {
+          "action": {
             "type": "string"
           },
-          "restaurants": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "content_type": {
+            "type": "string"
+          },
+          "author": {
+            "type": "object"
+          },
+          "before": {
+            "type": "object"
+          },
+          "after": {
+            "type": "object"
           },
           "created_by": {
             "type": "string"
@@ -636,7 +568,7 @@
   },
   "tags": [
     {
-      "name": "Place"
+      "name": "Log"
     }
   ]
 }
