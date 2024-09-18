@@ -2,6 +2,8 @@
 
 ![FoodAdvisor](./foodadvisor.png)
 
+_Disclaimer: FoodAdvisor is the official Strapi v4 demo application. It has been replaced by the new [LaunchPad](https://github.com/strapi/LaunchPad) demo application for Strapi 5._
+
 Welcome to FoodAdvisor, the official Strapi demo application.
 This repository contains the following:
 
